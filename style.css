@@ -1,0 +1,60 @@
+:root {
+  --grey-100: #F5F5F5;
+  --grey-600: #757575;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  
+}
+
+main {
+  background-color: var(--grey-100);
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notes {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.note {
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.note__eyebrow {
+  color: var(--grey-600)
+}
+
+.note__description {
+  font-size: 14px;
+}
+
+.note__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+.note__footer img{
+  max-width: 25px;
+}
+
+.note__footer button {
+  background: white;
+  border: none;
+}
