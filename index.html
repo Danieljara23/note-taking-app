@@ -14,75 +14,26 @@
       <h1>MY NOTES</h1>
     </header>
     <section class="notes">
-      <article class="note">
-        <div class="note__header">
-          <p class="note__eyebrow">21/11/1992</p>
-          <h3>My super note</h3>
-          <hr>
-        </div>
-        <div class="note__body">
-          <p class="note__description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis
-          </p>
-        </div>
-        <div class="note__footer">
-          <button><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
-          <button id="delete-button"><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
-        </div>
 
-      </article>
-      <article class="note">
-        <div class="note__header">
-          <p class="note__eyebrow">21/11/1992</p>
-          <h3>My super note</h3>
-          <hr>
-        </div>
-        <div class="note__body">
-          <p class="note__description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis
-          </p>
-        </div>
-        <div class="note__footer">
-          <button><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
-          <button><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
-        </div>
+    </section>
+    <section class="new-note">
+      <h2>New note</h2>
 
-      </article>
-      <article class="note">
-        <div class="note__header">
-          <p class="note__eyebrow">21/11/1992</p>
-          <h3>My super note</h3>
-          <hr>
-        </div>
-        <div class="note__body">
-          <p class="note__description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis
-          </p>
-        </div>
-        <div class="note__footer">
-          <button><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
-          <button><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
-        </div>
-
-      </article>
-      <article class="note">
-        <div class="note__header">
-          <p class="note__eyebrow">21/11/1992</p>
-          <h3>My super note</h3>
-          <hr>
-        </div>
-        <div class="note__body">
-          <p class="note__description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis
-          </p>
-        </div>
-        <div class="note__footer">
-          <button><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
-          <button><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
-        </div>
-
-      </article>
-
+      <form class="new-note-form">
+        <fieldset>
+          <label for="">Date</label>
+          <input type="date" id="date-input">
+        </fieldset>
+        <fieldset>
+          <label for="">Title</label>
+          <input type="text" id="title-input">
+        </fieldset>
+        <fieldset>
+          <label for="">Description</label>
+          <textarea name="" rows="3" id="description-input"></textarea>
+        </fieldset>
+        <input id="new-note-button" type="submit" value="Create note">
+      </form>
     </section>
   </main>
   <script src="index.js"></script>

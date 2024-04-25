@@ -58,3 +58,18 @@ header {
   background: white;
   border: none;
 }
+
+.new-note{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
