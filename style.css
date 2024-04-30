@@ -36,6 +36,10 @@ header {
   border-radius: 10px;
 }
 
+.note button {
+  cursor: pointer;
+}
+
 .note__eyebrow {
   color: var(--grey-600)
 }

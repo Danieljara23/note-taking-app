@@ -1,4 +1,4 @@
-const notesList = [
+let notesList = [
   {
     date: "23/11/2023",
     title: "My super note",
@@ -16,7 +16,7 @@ const notesList = [
   },
 ]
 
-function getNoteHtml(note){
+function getNoteHtml(note) {
   return `
     <article class="note">
       <div class="note__header">
@@ -30,36 +30,70 @@ function getNoteHtml(note){
         </p>
       </div>
       <div class="note__footer">
-        <button><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
-        <button id="delete-button"><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
+        <button class="edit-button"><img src="./assets/edit-icon.png" alt="Edit" srcset=""></button>
+        <button class="delete-button"><img src="./assets/delete-icon.png" alt="Delete" srcset=""></button>
       </div>
     </article>
   `
 }
 
+function renderNotes(notes){
+  const notesElement = document.querySelector(".notes");
+  let notesHtml = ""
+  notes.forEach((element) => {
+    notesHtml += getNoteHtml(element)
+  })
+  notesElement.innerHTML = notesHtml
 
-const notesElement = document.querySelector(".notes");
+  addDeleteAction()
+  addEditAction()
+}
 
+function addDeleteAction(){
+  const deleteButtons = document.querySelectorAll(".delete-button")
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener("click", function(e){
+      // console.log(e)
+      const buttonElement = e.target;
+  
+      const parentNote = buttonElement.closest(".note")
+      console.log(parentNote)
+  
+      const notes = document.querySelector(".notes")
+      const noteIndex = Array.from(notes.children).indexOf(parentNote)
+  
+      notesList = notesList.filter((element, index) => index != noteIndex)
+  
+      renderNotes(notesList)
+  
+    })
+  })
+}
 
-let notesHtml = ""
-notesList.forEach((element) => {
-  notesHtml += getNoteHtml(element)
-})
+document.querySelector
 
-// const notesHtml = notesList.map((element) => {
-//   return getNoteHtml(element)
-// }).join("")
+function addEditAction(){
+  const editButtons = document.querySelectorAll(".edit-button")
+  editButtons.forEach(editButton => {
+    editButton.addEventListener("click", function(e){
+      const buttonElement = e.target;
+      const parentNote = buttonElement.closest(".note")
+  
+      const dateValue = parentNote.querySelector(".note__eyebrow").innerText
+      const titleValue = parentNote.querySelector("h3").innerText
+      const descriptionValue = parentNote.querySelector(".note__description").innerText
 
-// console.log(notesHtml)
+      console.log(dateValue, titleValue, descriptionValue)
+    })
+  })
+}
 
-
-notesElement.innerHTML = notesHtml
-
+renderNotes(notesList)
 
 
 const newNoteButton = document.getElementById("new-note-button")
 
-newNoteButton.addEventListener("click", function(e){
+newNoteButton.addEventListener("click", function (e) {
   e.preventDefault()
   console.log("Hola amigos")
 
@@ -75,16 +109,13 @@ newNoteButton.addEventListener("click", function(e){
 
   notesList.push(newNote)
 
-  console.log(notesList)
-
-  
-let notesHtml = ""
-notesList.forEach((element) => {
-  notesHtml += getNoteHtml(element)
+  renderNotes(notesList)
 })
 
 
-notesElement.innerHTML = notesHtml
-  
 
-})
+
+
+
+
+// console.log(deleteButtons)
