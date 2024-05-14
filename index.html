@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
     <section class="notes">
 
     </section>
-    <section class="new-note">
+    <!-- <section class="new-note">
       <h2>New note</h2>
 
       <form class="new-note-form">
@@ -34,8 +35,36 @@
         </fieldset>
         <input id="new-note-button" type="submit" value="Create note">
       </form>
+    </section> -->
+    <section class="custom-modal">
+      <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+      
+        <div class="modal-card">
+          <h2>New note</h2>
+
+        <form class="new-note-form">
+          <fieldset>
+              <label for="">Date</label>
+              <input type="date" id="date-input">
+            </fieldset>
+            <fieldset>
+              <label for="">Title</label>
+              <input type="text" id="title-input">
+            </fieldset>
+            <fieldset>
+              <label for="">Description</label>
+              <textarea name="" rows="3" id="description-input"></textarea>
+            </fieldset>
+            <input id="new-note-button" type="submit" value="Create note">
+            <input id="edit-note-button" type="submit" data-selected-note value="Save note">
+        </form>
+          </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
     </section>
   </main>
+  <script src="modal.js"></script>
   <script src="index.js"></script>
 </body>
 

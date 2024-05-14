@@ -1,16 +1,16 @@
 let notesList = [
   {
-    date: "23/11/2023",
+    date: "2023-11-23",
     title: "My super note",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis"
   },
   {
-    date: "04/04/2024",
+    date: "2024-04-04",
     title: "Note number 2",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis"
   },
   {
-    date: "24/05/2023",
+    date: "2023-05-24",
     title: "My university",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure corporis dignissimos sequi assumenda velit commodi, numquam odit aliquam blanditiis"
   },
@@ -74,17 +74,56 @@ document.querySelector
 
 function addEditAction(){
   const editButtons = document.querySelectorAll(".edit-button")
+
   editButtons.forEach(editButton => {
     editButton.addEventListener("click", function(e){
       const buttonElement = e.target;
       const parentNote = buttonElement.closest(".note")
-  
-      const dateValue = parentNote.querySelector(".note__eyebrow").innerText
-      const titleValue = parentNote.querySelector("h3").innerText
-      const descriptionValue = parentNote.querySelector(".note__description").innerText
 
-      console.log(dateValue, titleValue, descriptionValue)
+      const notes = document.querySelector(".notes")
+      const noteIndex = Array.from(notes.children).indexOf(parentNote)
+  
+      // Open Modal
+      document.querySelector(".modal").classList.add("is-active")
+  
+      const dateElement = parentNote.querySelector(".note__eyebrow")
+      const titleElement = parentNote.querySelector("h3")
+      const descriptionElement = parentNote.querySelector(".note__description")
+
+
+      const dateInput = document.getElementById("date-input")
+      const titleInput = document.getElementById("title-input")
+      const descriptionInput = document.getElementById("description-input")
+
+      dateInput.value = dateElement.innerText
+      titleInput.value = titleElement.innerText
+      descriptionInput.value = descriptionElement.innerText
+
+      editNoteButton.setAttribute("data-selected-note", noteIndex)
     })
+  })
+
+  const editNoteButton = document.querySelector("#edit-note-button")
+
+  editNoteButton.addEventListener("click", (e)=> {
+    e.preventDefault();
+    const dateInput = document.getElementById("date-input")
+    const titleInput = document.getElementById("title-input")
+    const descriptionInput = document.getElementById("description-input")
+
+    const noteIndex = editNoteButton.getAttribute("data-selected-note")
+    const selectedNote = document.querySelector(`.note:nth-child(${Number(noteIndex) + 1})`)
+
+    const dateElement = selectedNote.querySelector(".note__eyebrow")
+    const titleElement = selectedNote.querySelector("h3")
+    const descriptionElement = selectedNote.querySelector(".note__description")
+
+    dateElement.innerText = dateInput.value
+    titleElement.innerText = titleInput.value
+    descriptionElement.innerText = descriptionInput.value
+
+    document.querySelector(".modal").classList.remove("is-active")
+
   })
 }
 
